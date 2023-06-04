@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Factory.Models;
 
@@ -12,20 +13,25 @@ namespace Factory
 
       builder.Services.AddControllersWithViews();
 
-      DBConfiguration.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
+      builder.Services.AddDbContext<FactoryContext>(
+                        dbContextOptions => dbContextOptions
+                          .UseMySql(
+                            builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
+                          )
+                        )
+                      );
 
       WebApplication app = builder.Build();
 
-    //   app.UseDeveloperExceptionPage();
+      // app.UseDeveloperExceptionPage();
       app.UseHttpsRedirection();
       app.UseStaticFiles();
 
       app.UseRouting();
 
       app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}"
-      );
+          name: "default",
+          pattern: "{controller=Home}/{action=Index}/{id?}");
 
       app.Run();
     }
