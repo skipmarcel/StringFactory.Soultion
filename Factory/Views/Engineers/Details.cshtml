@@ -6,6 +6,7 @@
 @using Factory.Models;
 @using System.Collections.Generic;
 
+<div>
 <h2>Engineer Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
@@ -43,3 +44,5 @@ else
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Add new machine", "Create", "Machines")</p>
+
+</div>
