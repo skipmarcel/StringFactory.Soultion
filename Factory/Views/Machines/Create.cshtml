@@ -4,6 +4,7 @@
 
 @model Factory.Models.Machine
 
+<div>
 <p><strong>NOTE:</strong> You need to have at least one engineer before you can add an machine!</p>
 <p>Go to @Html.ActionLink("this page", "Create", "Engineers") to create an engineer.</p>
 
@@ -20,3 +21,4 @@
   <input type="submit" value="Add new machine" class="btn btn-primary" />
 }
 <p>@Html.ActionLink("Show all machines", "Index")</p>
+</div>
