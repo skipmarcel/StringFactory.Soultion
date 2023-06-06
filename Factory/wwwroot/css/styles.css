@@ -3,6 +3,11 @@
   color: azure;
 }
 
+h1,
+p {
+  font-family: "Orbitron", sans-serif;
+}
+
 div {
   display: flex;
   flex-direction: column;
@@ -16,4 +21,5 @@ input {
 
 #footer {
   margin-top: 10%;
+  font-family: "Orbitron", sans-serif;
 }
