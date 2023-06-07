@@ -4,6 +4,7 @@
 
 @model Factory.Models.Tag
 
+<div>
 <h4>Add a new tag</h4>
 
 @using (Html.BeginForm())
@@ -14,3 +15,4 @@
     <input type="submit" value="Add new tag" class="btn btn-primary" />
 }
 <p>@Html.ActionLink("Show all tags", "Index")</p>
+</div>
