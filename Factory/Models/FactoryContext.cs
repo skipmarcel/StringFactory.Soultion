@@ -8,6 +8,7 @@ namespace Factory.Models
     public DbSet<Machine> Machines { get; set; }
     public DbSet<Tag> Tags { get; set; }
     public DbSet<MachineTag> MachineTags { get; set; }
+    public DbSet<MachineEngineer> MachineEngineers { get; set; }
 
     public FactoryContext(DbContextOptions options) : base(options) { }
   }

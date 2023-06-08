@@ -9,5 +9,6 @@ namespace Factory.Models
     public int EngineerId { get; set; }
     public Engineer Engineer { get; set; }
     public List<MachineTag> JoinEntities { get;}
+    public List<MachineEngineer> MachineEngineers { get;}
   }
 }
