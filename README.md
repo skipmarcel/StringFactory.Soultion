@@ -1,3 +1,13 @@
+## Technologies Used
+
+• C#
+• .NET6 SDK
+• ASP.NET Core MVC
+• EF Core
+• SQL
+• HTML
+• CSS
+
 ## What Is This?
 
 This is a project I completed using C# and ASP.net while attending Epicodus programing school. It's an exercise in Many-to-Many Relationships with Mysql databases.
@@ -20,3 +30,13 @@ This is a project I completed using C# and ASP.net while attending Epicodus prog
 6. Within the production directory "Factory", run `dotnet watch run` in the command line to start the project in development mode with a watcher.
 
 7. Open the browser to _https://localhost:5001_. If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS.
+
+## Known Bugs
+
+No known bugs.
+
+## License
+
+Contact skipmarcel@gmail.com with any questions or issues
+
+Copyright (c) 2023 Tyler Adams
