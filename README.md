@@ -1,12 +1,12 @@
 ## Technologies Used
 
-• C#
-• .NET6 SDK
-• ASP.NET Core MVC
-• EF Core
-• SQL
-• HTML
-• CSS
+- C#
+- .NET6 SDK
+- ASP.NET Core MVC
+- EF Core
+- SQL
+- HTML
+- CSS
 
 ## What Is This?
 
