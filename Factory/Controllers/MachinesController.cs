@@ -35,8 +35,9 @@ namespace Factory.Controllers
     {
       if (machine.EngineerId == 0)
       {
-        return RedirectToAction("Create");
+        machine.EngineerId = 0;
       }
+
       _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
