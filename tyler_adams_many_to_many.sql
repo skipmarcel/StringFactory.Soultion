@@ -40,7 +40,7 @@ CREATE TABLE `Engineers` (
   `EngineerId` int NOT NULL AUTO_INCREMENT,
   `Name` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   PRIMARY KEY (`EngineerId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,11 +72,11 @@ DROP TABLE IF EXISTS `Machines`;
 CREATE TABLE `Machines` (
   `MachineId` int NOT NULL AUTO_INCREMENT,
   `Description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `EngineerId` int NOT NULL,
+  `EngineerId` int DEFAULT NULL,
   PRIMARY KEY (`MachineId`),
-  KEY `IX_Machines_EngineerId` (`EngineerId`),
-  CONSTRAINT `FK_Machines_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `Engineers` (`EngineerId`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK_Machines_Engineers_EngineerId_idx` (`EngineerId`),
+  CONSTRAINT `FK_Machines_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `Engineers` (`EngineerId`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,4 +121,4 @@ CREATE TABLE `Tags` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-08 12:25:13
+-- Dump completed on 2023-06-11 10:23:34
