@@ -23,3 +23,7 @@ input {
   margin-top: 10%;
   font-family: "Orbitron", sans-serif;
 }
+
+ul {
+  padding-left: 0;
+}

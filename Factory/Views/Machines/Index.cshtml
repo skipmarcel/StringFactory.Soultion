@@ -13,6 +13,7 @@
     }
     else
     {
+        <div>
         <ul>
             @foreach (Machine machine in Model)
             {
@@ -21,10 +22,11 @@
                 </li>
             }
         </ul>
+        </div>
     }
 
     <p>@Html.ActionLink("Add new machine", "Create")</p>
     <p>@Html.ActionLink("View All Machines", "Create")</p>
     <p>@Html.ActionLink("Home", "Index", "Home")</p>
-    <p>@Html.ActionLink("View All Engineers and Machines", "Index", "Home")</p>
+    <p>@Html.ActionLink("Home - Engineer and Machine List", "Index", "Home")</p>
 </div>
