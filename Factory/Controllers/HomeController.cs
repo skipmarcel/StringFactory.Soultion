@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Collections.Generic;
-using System.Ling;
+using System.Linq;
 
 namespace Factory.Controllers
 {
