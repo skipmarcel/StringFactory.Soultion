@@ -1,10 +1,42 @@
 @{
   Layout = "_Layout";
 }
+
+@using Factory.Models;
+
+
 <div>
 <h1>Welcome to the String Factory</h1>
 
+<h4>Engineers</h4>
+@if (Model["engineers"].Length == 0)
+{
+  <p>There are no engineers on your roster</p>
+}
+<ul>
+  @foreach (Engineer engineer in Model["engineers"])
+  {
+    <li>@Html.ActionLink(@engineer.EngineerName, "Details", "Engineers", new { id = @engineer.EngineerId})</li>
+  }
+</ul>
+
+<h4>Machines</h4>
+@if (Model["machines"].Length == 0)
+{
+  <p>There are no machines on your roster</p>
+}
+<ul>
+  @foreach (Machine machine in Model["machines"])
+  {
+    <li>@Html.ActionLink(@machine.MachineName, "Details", "Machines", new { id = @machine.MachineId})</li>
+  }
+</ul>
+
+<hr>
+
+<p>@Html.ActionLink("Manage Engineers", "Index", "Engineers")</p> 
+<p>@Html.ActionLink("Manage Machines", "Index", "Machines")</p>
+
 <p>@Html.ActionLink("See all machines", "Index", "Machines")</p> 
 <p>@Html.ActionLink("See all engineers", "Index", "Engineers")</p>
-<p>@Html.ActionLink("See all tags", "Index", "Tags")</p>
 </div>
