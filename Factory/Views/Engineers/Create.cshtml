@@ -2,15 +2,17 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer
+@model Factory.Models.Tag
 
 <div>
-<h4>Add a new engineer</h4>
+<h4>Add a new tag</h4>
+
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
-  <input type="submit" value="Add new engineer" />
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title)
+
+    <input type="submit" value="Add new tag" class="btn btn-primary" />
 }
-<p>@Html.ActionLink("Show all engineers", "Index")</p>
+<p>@Html.ActionLink("Show all tags", "Index")</p>
 </div>

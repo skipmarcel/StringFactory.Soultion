@@ -2,47 +2,36 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer;
-@using Factory.Models;
-@using System.Collections.Generic;
+@using Factory.Models
+@model Factory.Models.Tag
 
 <div>
-<h2>Engineer Details</h2>
+<h2>Tag Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</h3>
 
-@if(@Model.Machines.Count == 0)
+@if(@Model.JoinEntities.Count == 0)
 {
-  <p>This engineer is not connected to any machines</p>
+  <p>This tag does not belong to any machines.</p>
 }
 else
 {
-  <h4>Machines the engineer can work on:</h4>
+  <h4>Machines the tag belongs to:</h4>
   <ul>
-  @foreach(Machine machine in Model.Machines)
+  @foreach(MachineTag join in Model.JoinEntities)
   {
-    string tags = "";
-    @if(machine.JoinEntities.Count == 0)
+    <li>@join.Machine.Description</li>
+    @using (Html.BeginForm("DeleteJoin", "Tags"))
     {
-      tags = "This machine does not have any tags.";
+      @Html.Hidden("joinId", @join.MachineTagId)
+      <input type="submit" value="Delete"/>
     }
-    else
-    {
-      List<string> tagList = new List<string>();
-      @foreach(MachineTag join in machine.JoinEntities)
-      {
-        tagList.Add(join.Tag.Title);
-      }
-      tags = String.Join(", ", tagList);
-    }
-    <li>@machine.Description | Tags: @tags</li>
   }
   </ul>
 }
 
-<p>@Html.ActionLink("Back to engineers", "Index")</p>
-<p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Add new machine", "Create", "Machines")</p>
-
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.TagId })</p>
+<p>@Html.ActionLink("Edit Tag", "Edit", new { id = Model.TagId })</p>
+<p>@Html.ActionLink("Delete Tag", "Delete", new { id = Model.TagId })</p>
 </div>

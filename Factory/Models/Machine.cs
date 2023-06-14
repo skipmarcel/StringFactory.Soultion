@@ -11,6 +11,7 @@ namespace Factory.Models
     public Engineer Engineer { get; set; }
     public List<MachineTag> JoinEntities { get; }
     public List<MachineEngineer> MachineEngineers { get; set; }
+    public string Name { get; set; }
   }
 }
 
