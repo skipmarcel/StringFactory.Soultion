@@ -27,6 +27,10 @@ This is a project I completed using C# and ASP.net while attending Epicodus prog
 }
 ```
 
+5. Create the database using the migrations in the Factory project. Open your shell (e.g., Terminal or GitBash) to the production directory "Factory", and run `dotnet ef database update`.
+
+- To optionally create a migration, run the command `dotnet ef migrations add MigrationName` where MigrationName is your custom name for the migration in UpperCamelCase.
+
 6. Within the production directory "Factory", run `dotnet watch run` in the command line to start the project in development mode with a watcher.
 
 7. Open the browser to _https://localhost:5001_. If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS.
