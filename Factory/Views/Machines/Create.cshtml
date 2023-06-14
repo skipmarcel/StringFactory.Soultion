@@ -5,20 +5,25 @@
 @model Factory.Models.Machine
 
 <div>
-<p><strong>NOTE:</strong> You need to have at least one engineer before you can add an machine!</p>
+
 <p>Go to @Html.ActionLink("this page", "Create", "Engineers") to create an engineer.</p>
 
-<h4>Add a new machine</h4>
+<h4>Add an engineer</h4>
+
+<p>@Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.MachineDescription, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
+  @Html.LabelFor(model => model.MachineName)
+  @Html.TextBoxFor(model => model.MachineName)
 
-  @Html.LabelFor(model => model.Engineer)
-  @Html.DropDownList("EngineerId")
+  @Html.LabelFor(model => model.MachineDescription)
+  @Html.TextAreaFor(model => model.MachineDescription)
 
-  <input type="submit" value="Add new machine" class="btn btn-primary" />
+  <input type="submit" value="Add new machine" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all machines", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>

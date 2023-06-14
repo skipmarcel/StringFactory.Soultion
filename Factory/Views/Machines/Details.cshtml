@@ -8,31 +8,30 @@
 <div>
 <h2>Machine Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>  
-<h3>@Html.DisplayNameFor(model => model.Engineer): @Html.DisplayFor(model => model.Engineer.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.MachineName): @Html.DisplayFor(model => model.MachineName)</h3>  
+<h3>@Html.DisplayNameFor(model => model.MachineDescription): @Html.DisplayFor(model => model.MachineDescription)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This machine does not have any tags yet!</p>
+  <p>There are no engineers assigned to this machine</p>
 }
 else
 {
-  <h4>This machine has the following tags:</h4>
+  <h4>The following engineers are assigned to this machine:</h4>
   <ul>
-    @foreach(MachineTag join in Model.JoinEntities)
+    @foreach(EngineerMachine join in Model.JoinEntities)
     {
-      <li>Tag: @join.Tag.Title</li>
+      <li>Engineer: @join.Engineer.EngineerName</li>
       @using (Html.BeginForm("DeleteJoin", "Machines"))
       {
-        @Html.Hidden("joinId", @join.MachineTagId)
+        @Html.Hidden("joinId", @join.EngineerMachineId)
         <input type="submit" value="Delete"/>
       }
     }
   </ul>
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Machine or Engineer", "Edit", new { id = Model.MachineId })</p>
-<p>@Html.ActionLink("Add a Tag", "AddTag", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Back to Machine list", "Index")</p>
+<p>@Html.ActionLink("Add an Engineer to this Machine", "AddEngineer", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
 </div>
