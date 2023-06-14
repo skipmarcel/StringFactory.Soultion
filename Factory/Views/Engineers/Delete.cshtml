@@ -2,15 +2,18 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Tag
+@model Factory.Models.Engineer
 
 <div>
-<h2>Are you sure you want to delete this?</h2>
+<h2>Are you sure you want to delete this engineer?</h2>
 
-@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)
+@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)
 @using (Html.BeginForm())
 {
     <input type="submit" value="Delete" />
 }
-@Html.ActionLink("Back to List", "Index")
+
+<p>@Html.ActionLink("Add new Engineer", "Create")</p>
+<p>@Html.ActionLink("Add new Machine", "Create", "Machines")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>

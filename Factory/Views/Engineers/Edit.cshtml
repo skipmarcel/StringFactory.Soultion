@@ -2,22 +2,24 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Tag
+@model Factory.Models.Engineer
 
 <div>
 <h2>Edit</h2>
 
-<h4>Edit this tag: @Html.DisplayFor(model => model.Title)</h4>
+<h4>Edit this engineer: @Html.DisplayFor(model => model.EngineerName)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.TagId)
+    @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.LabelFor(model => model.Title)
-    @Html.EditorFor(model => model.Title)
+    @Html.LabelFor(model => model.EngineerDetails)
+    @Html.EditorFor(model => model.EngineerDetails)
 
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to engineer list", "Index")</p>
+<p>@Html.ActionLink("Add machine to Engineer's skill set", "AddMachine", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>
